@@ -20,13 +20,13 @@ AI agents are powerful tools, but their effectiveness depends on well-defined sk
 
 The repository currently includes the following skills from the DocFactory suite, which automate documentation for mobile app development:
 
-1. **[docfactory-init](docfactory-init/)**: Generates foundational documents (`00-project-brief.md`, `00-decisions.md`, `00-glossary.md`) from an initial idea capsule.
-2. **[docfactory-market](docfactory-market/)**: Conducts market research and competitor analysis (`01-market-research.md`).
-3. **[docfactory-prd](docfactory-prd/)**: Creates a Product Requirements Document (`02-prd.md`) with user stories and monetization strategies.
-4. **[docfactory-uiux](docfactory-uiux/)**: Develops UI/UX specifications (`03-ui-ux-spec.md`) including screen specs and accessibility checklists.
-5. **[docfactory-arch](docfactory-arch/)**: Drafts technical architecture documentation (`04-tech-architecture.md`) covering stack, data layer, and deployment.
-6. **[docfactory-backlog](docfactory-backlog/)**: Generates a prioritized backlog (`06-backlog.md`) with task cards and estimation rubrics.
-7. **[docfactory-audit](docfactory-audit/)**: Performs consistency audits (`09-consistency-audit.md`) to ensure project coherence.
+1. **[docfactory-init](skills/docfactory-init/)**: Generates foundational documents (`00-project-brief.md`, `00-decisions.md`, `00-glossary.md`) from an initial idea capsule.
+2. **[docfactory-market](skills/docfactory-market/)**: Conducts market research and competitor analysis (`01-market-research.md`).
+3. **[docfactory-prd](skills/docfactory-prd/)**: Creates a Product Requirements Document (`02-prd.md`) with user stories and monetization strategies.
+4. **[docfactory-uiux](skills/docfactory-uiux/)**: Develops UI/UX specifications (`03-ui-ux-spec.md`) including screen specs and accessibility checklists.
+5. **[docfactory-arch](skills/docfactory-arch/)**: Drafts technical architecture documentation (`04-tech-architecture.md`) covering stack, data layer, and deployment.
+6. **[docfactory-backlog](skills/docfactory-backlog/)**: Generates a prioritized backlog (`06-backlog.md`) with task cards and estimation rubrics.
+7. **[docfactory-audit](skills/docfactory-audit/)**: Performs consistency audits (`09-consistency-audit.md`) to ensure project coherence.
 
 These skills are designed to be used in sequence for optimal results in mobile app documentation.
 
@@ -41,7 +41,7 @@ To use any skill in this repository:
    cd skills
    ```
 
-2. Copy the desired skill directory into your agent's configured skills directory.
+2. Copy the desired skill directory from the `skills/` folder into your agent's configured skills directory.
 
 For skills requiring local validation or generation (e.g., those with Python scripts), ensure Python 3.x is installed along with any specified dependencies (e.g., PyYAML).
 
