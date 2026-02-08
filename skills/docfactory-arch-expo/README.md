@@ -1,11 +1,11 @@
-# DocFactory Arch — Agent Skill (docfactory-arch)
+# DocFactory Arch: Expo Specialist — Agent Skill (docfactory-arch-expo)
 
-Drafts `04-tech-architecture.md` (stack decisions, data layer, integrations, folder tree, deployment, security) from the Source-of-Truth docs, PRD, and UI/UX spec.
+Drafts `04-tech-architecture.md` (stack decisions, data layer, integrations, folder tree, deployment, security) from the Source-of-Truth docs, PRD, and UI/UX spec, specifically for the Expo ecosystem.
 
 ## Install
 
 This skill follows the [Agent Skills](https://agentskills.io) format.
-Copy the `docfactory-arch/` directory into your agent's configured skills directory.
+Copy the `docfactory-arch-expo/` directory into your agent's configured skills directory.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Optional:
 - `SKILL.md` — skill instructions
 - `templates/04-tech-architecture.template.md` — architecture template
 - `references/` — checklists (dependency pinning, deployment, Supabase RLS, RevenueCat, NativeWind, Expo Router)
-- `scripts/validate_docfactory_arch.py` — validator (optional)
+- `scripts/validate_docfactory_arch_expo.py` — validator (optional)
 - `examples/` — example idea + example outputs
 
 ## Notes

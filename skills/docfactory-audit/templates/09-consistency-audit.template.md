@@ -2,17 +2,25 @@
 
 ## Decision Summary
 
+<!-- One sentence summary of the audit findings and readiness. -->
+
 - ...
 
 ## Open Questions
+
+<!-- List any questions that require user clarification before fixing findings. -->
 
 - ...
 
 ## Assumptions
 
+<!-- Tag as [ASSUMPTION-A1], [ASSUMPTION-A2], etc. -->
+
 - [ASSUMPTION-A1] ...
 
 ## Risks & Mitigations
+
+<!-- Tag as [RISK] (e.g., [RISK] High risk of drift in navigation logic). -->
 
 - [RISK] ...
 
@@ -24,13 +32,14 @@
   - 00-glossary.md
   - 02-prd.md
   - 03-ui-ux-spec.md
-  - 04-tech-architecture.md
+  - 04-tech-architecture.md (Expo Stack)
   - 06-backlog.md
 - Optional present:
   - 01-market-research.md (yes/no)
 
 ## 2) Executive Summary
 
+- **Readiness Score**: <!-- 🟢 READY / 🟡 NEEDS FIXES / 🔴 BLOCKED -->
 - Ship blockers (count):
 - Highest-leverage fixes:
 - Overall readiness score (qualitative):
@@ -42,6 +51,8 @@
 | A-001 | BLOCKER  | ...     | 02-prd.md, 03-ui-ux-spec.md | ...            | ...             |
 
 ## 4) Consistency Checks (Detailed)
+
+<!-- Use the checklist in references/consistency-checklist.md. -->
 
 ### 4.1 Identity & positioning
 
@@ -84,11 +95,10 @@
 - Missing acceptance criteria:
 - Missing route protection rules:
 - Missing entitlement names:
-- ...
 
 ## 6) Proposed Patches (grouped by file)
 
-> Keep patches small and explicit. Prefer bullets or short diff-like blocks.
+<!-- Keep patches small and explicit. Prefer copy-pasteable blocks. -->
 
 ### Patch: 00-decisions.md
 
@@ -112,11 +122,11 @@
 
 ## 7) Next Actions (ordered)
 
+<!-- Order by highest leverage (Blockers first). -->
+
 1. ...
-2. ...
-3. ...
 
 ## 8) Appendix — Audit Notes
 
-- Any methodology notes
-- Any constraints (e.g., missing optional docs)
+- Any methodology notes.
+- Any constraints (e.g., missing optional docs).

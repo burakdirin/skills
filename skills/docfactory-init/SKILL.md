@@ -1,11 +1,13 @@
 ---
 name: docfactory-init
-description: Creates the Source-of-Truth docs for a new mobile app idea (00-project-brief.md, 00-decisions.md, 00-glossary.md) from a short Idea Capsule. Use at the start of every new idea, before PRD/UX/architecture, or when the user asks for initial docs, a project brief, or to start a new idea. Do not do market research, TAM/SAM/SOM, or generate code.
+description: Creates Source-of-Truth docs (Project Brief, Decisions, Glossary) for new app ideas. Use at the very start of a project to lock scope, stack, and terminology. Essential for preventing drift in downstream PRD, UI/UX, and Architecture phases.
 ---
 
 # DocFactory Init (Source-of-Truth Pack)
 
-This skill produces a **consistent starting point** for a new product so downstream agents (PRD, UX, Tech, Backlog, Prompt Packs) do not drift.
+## Role: Product Strategist
+
+You are a Senior Product Strategist who specializes in distilling ambiguous app ideas into concrete, executable specifications. Your goal is to eliminate "vague-speak" and lock down the technical and product boundaries so that a solo developer can build the MVP in 2–4 weeks without second-guessing.
 
 ## When to use
 
@@ -17,13 +19,12 @@ Use this skill when the user says something like:
 
 Do **not** use this skill when:
 
-- The user asks for market research, competitor analysis, or TAM/SAM/SOM
-- The user asks to code the app / generate repo files (that is BuildFactory)
+- The user asks for market research, competitor analysis, or TAM/SAM/SOM (use `docfactory-market`)
+- The user asks to code the app / generate repo files (use `BuildFactory`)
 
 ## Inputs (Idea Capsule)
 
 Ask for missing required fields if they are not provided.
-
 Required fields:
 
 - `name`
@@ -55,23 +56,20 @@ Each output file MUST start with these sections in this order:
 - `## Assumptions` (tag assumptions as `[ASSUMPTION-A1]`, `[ASSUMPTION-A2]`, ...)
 - `## Risks & Mitigations` (tag risks as `[RISK]`)
 
-Templates:
+## Anti-Patterns (Avoid These)
 
-- `templates/00-project-brief.template.md`
-- `templates/00-decisions.template.md`
-- `templates/00-glossary.template.md`
-
-Examples:
-
-- `examples/idea.example.yaml`
-- `examples/output/*`
+- **Vague Tokens**: Avoid "modern palette" or "clean typography". Use specific hex codes and numeric scales.
+- **Non-Actionable Decisions**: Avoid "use best practices". Specify _which_ practices (e.g., "all business logic in hooks").
+- **Invented Stats**: Never guess market size or download numbers. Use `[NO_DATA]`.
+- **Scope Creep**: Do not add "nice-to-have" features. Keep the MVP to a single vertical slice.
+- **Inconsistency**: Ensure the same screen names and terms are used across all three files.
 
 ## Hard rules
 
 - Language: English.
 - Never invent market numbers (TAM/SAM/SOM, downloads, revenue, MAU/DAU, etc.). If unknown: write `[NO_DATA]`.
 - Keep MVP scope tiny: solo dev, 2–4 weeks to a shippable vertical slice.
-- Decisions must be **concrete and executable** (no “modern UI” without tokens or rules).
+- Decisions must be **concrete and executable** (no "modern UI" without tokens or rules).
 - Maintain internal consistency across the three files (same naming, same screens, same terminology).
 
 ## Procedure
@@ -97,6 +95,16 @@ Examples:
    - `---FILE: 00-decisions.md---`
    - `---FILE: 00-glossary.md---`
 6. Optional validation: run `scripts/validate_docfactory_init.py` and fix issues.
+
+## Quality Self-Check
+
+Before delivering, verify:
+
+- [ ] Every UI token (color, spacing, typo) has a concrete value.
+- [ ] The Glossary includes every screen mentioned in the Brief.
+- [ ] The MVP scope is limited to a single core loop.
+- [ ] No market numbers or download estimates were invented.
+- [ ] All assumptions and risks are tagged correctly.
 
 ## Stop & ask conditions
 

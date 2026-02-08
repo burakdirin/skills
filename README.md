@@ -24,7 +24,7 @@ The repository currently includes the following skills from the DocFactory suite
 2. **[docfactory-market](skills/docfactory-market/)**: Conducts market research and competitor analysis (`01-market-research.md`).
 3. **[docfactory-prd](skills/docfactory-prd/)**: Creates a Product Requirements Document (`02-prd.md`) with user stories and monetization strategies.
 4. **[docfactory-uiux](skills/docfactory-uiux/)**: Develops UI/UX specifications (`03-ui-ux-spec.md`) including screen specs and accessibility checklists.
-5. **[docfactory-arch](skills/docfactory-arch/)**: Drafts technical architecture documentation (`04-tech-architecture.md`) covering stack, data layer, and deployment.
+5. **[docfactory-arch-expo](skills/docfactory-arch-expo/)**: Drafts technical architecture documentation (`04-tech-architecture.md`) covering the Expo stack, data layer, and deployment.
 6. **[docfactory-backlog](skills/docfactory-backlog/)**: Generates a prioritized backlog (`06-backlog.md`) with task cards and estimation rubrics.
 7. **[docfactory-audit](skills/docfactory-audit/)**: Performs consistency audits (`09-consistency-audit.md`) to ensure project coherence.
 

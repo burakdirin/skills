@@ -13,19 +13,21 @@
 
 ## Assumptions
 
-- [ASSUMPTION-A1] We will start with 4 preset “styles” rather than a free-form prompt.
+- [ASSUMPTION-A1] We will start with 4 preset "styles" rather than a free-form prompt.
+- [ASSUMPTION-A2] Users have a stable internet connection for AI processing.
 
 ## Risks & Mitigations
 
 - [RISK] AI provider latency may harm UX. Mitigation: background processing + clear progress UI + retry.
+- [RISK] Low quality uploads lead to poor results. Mitigation: Add "Selfie Guide" screen before upload.
 
 ## Product snapshot
 
 - **Product name:** Headshot Studio
 - **Target user:** Job seekers needing professional headshots quickly
-- **Core loop (1 sentence):** Upload selfie → generate 4 headshots → pick → export
-- **Monetization:** Freemium + subscription
-- **Differentiator:** Fastest results + iOS-native UX
+- **Core loop (1 sentence):** Upload a single selfie, select a professional style, and receive 4 high-quality headshots ready for LinkedIn.
+- **Monetization:** Freemium (2 free generations) + Subscription (Unlimited + Priority Processing)
+- **Differentiator:** Fastest results (under 60s) + iOS-native UX with zero prompt engineering required.
 - **Target markets:** US/UK/DE/FR
 - **Platforms:** iOS + Android
 
@@ -33,19 +35,28 @@
 
 ### IN (Must-have)
 
-- Onboarding (permission + expectations)
-- Create flow (upload → generate → results)
-- History (previous generations, re-download)
-- Paywall (subscribe, restore purchases)
-- Settings (legal, account, help)
+- Onboarding (Value prop + camera permission)
+- Selfie Guide (Dos and Don'ts)
+- Create flow (Upload -> Style Selection -> Processing -> Results)
+- Results view (Grid of 4, single image expansion, export to camera roll)
+- History (List of previous generations with thumbnails)
+- Paywall (RevenueCat integration, monthly/yearly options)
+- Settings (Account, Restore Purchases, Privacy Policy, Terms)
 
 ### OUT (Explicit non-goals)
 
-- Social feed / sharing network
-- Messaging
-- Marketplace or creator economy features
+- Social feed or sharing to public gallery
+- In-app messaging or support chat
+- Manual prompt editing or advanced AI parameters
+- Web version (Mobile-only for MVP)
 
 ## Success criteria (MVP)
 
-- Users can complete the loop end-to-end without manual intervention
-- Crash-free sessions and predictable loading/error states for all screens
+- User can go from app launch to first headshot export in under 3 minutes.
+- 99.9% crash-free sessions.
+- Successful RevenueCat entitlement check on every app launch.
+
+## Key constraints
+
+- Stack: Expo + RN + TS + Expo Router + NativeWind v4 + Supabase + RevenueCat
+- Minimalist iOS-native feel, consistent tokens, consistent navigation

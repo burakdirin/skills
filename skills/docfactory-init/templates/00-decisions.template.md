@@ -2,21 +2,31 @@
 
 ## Decision Summary
 
+<!-- Summary of the technical and design system decisions made here. -->
+
 - (fill in)
 
 ## Open Questions
+
+<!-- List any technical or design questions that remain unanswered. -->
 
 - (fill in)
 
 ## Assumptions
 
+<!-- Tag as [ASSUMPTION-A1], [ASSUMPTION-A2], etc. -->
+
 - [ASSUMPTION-A1] ...
 
 ## Risks & Mitigations
 
+<!-- Tag as [RISK] and provide a mitigation strategy. -->
+
 - [RISK] ...
 
 ## Stack (locked for MVP)
+
+<!-- Do not change these unless explicitly requested. -->
 
 - Expo SDK: ...
 - React Native: ...
@@ -27,6 +37,8 @@
 - Subscriptions: RevenueCat
 
 ## UI Design Tokens (locked)
+
+<!-- Use concrete hex codes and numeric scales. No "clean" or "modern" placeholders. -->
 
 ### Colors (hex)
 

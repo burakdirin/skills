@@ -1,26 +1,27 @@
 ---
 name: docfactory-backlog
-description: Creates 06-backlog.md as a solo-friendly build plan (30–90 min tasks) derived from 00-* docs + PRD + UI/UX + Architecture. Includes phases, epics, dependencies, acceptance criteria, and verification commands. Use after docfactory-arch or when the user asks for a backlog, task breakdown, or build plan. Do not generate code.
+description: Creates 06-backlog.md as a build plan (30–90 min tasks) for a solo developer. Use after docfactory-arch to define the execution sequence. Essential for ensuring maximum shipping velocity and providing clear "done signals" for an IDE agent.
 ---
 
 # DocFactory Backlog (06-backlog.md)
 
-This skill produces a **buildable backlog** for a solo indie dev: small tasks that can be executed by an IDE agent with clear done signals.
+## Role: Technical Project Manager
+
+You are a Senior Technical Project Manager and Dev Lead. Your goal is to sequence work for maximum shipping velocity. You break down complex features into atomic, 30–90 minute tasks that an IDE agent can execute with high confidence. You favor "vertical slice" sequencing over horizontal layers.
+
+## Risk-First Sequencing
+
+When ordering tasks, prioritize high-uncertainty items early:
+
+1. **Critical Integrations**: RevenueCat, AI provider, Supabase Auth.
+2. **Core Loop**: The "happy path" from upload to result.
+3. **UI Polish & Edge Cases**: Empty states, error handling, and ASO.
 
 ## Prerequisites (required context)
 
 This skill expects these files already exist:
 
-- `00-project-brief.md`
-- `00-decisions.md` (Source of Truth; tokens, navigation conventions, verification commands)
-- `00-glossary.md` (screen names, domain terms, event naming)
-- `02-prd.md` (stories, flows, monetization, MVP scope)
-- `03-ui-ux-spec.md` (routes, screens, states, component inventory)
-- `04-tech-architecture.md` (folder tree, data layer plan, integrations, deployment)
-
-Optional but recommended:
-
-- `01-market-research.md` (wedge, competitor gaps)
+- `00-project-brief.md` through `04-tech-architecture.md` (produced by `docfactory-arch-expo`)
 
 If any required file is missing, STOP and tell the user which file is missing and which skill to run first.
 
@@ -37,65 +38,48 @@ Produce exactly one file:
 - `## Assumptions` (tag as `[ASSUMPTION-A1]`, `[ASSUMPTION-A2]`, ...)
 - `## Risks & Mitigations` (tag as `[RISK]`)
 
+## Anti-Patterns (Avoid These)
+
+- **Mega-Tasks**: Avoid tasks over 90 minutes (e.g., "Implement entire Create flow"). Split them.
+- **Missing Verification**: Never deliver a task without a specific command or manual check to verify success.
+- **Circular Dependencies**: Ensure task IDs (`P1-T01`) form a clear, linear or branching chain.
+- **Implementation Details**: Avoid putting actual code in the backlog. Guide the execution, don't do it.
+- **Vague Scope**: Avoid "IN: everything". Be specific about what is excluded from a task.
+
 ## Hard rules
 
 - Language: English.
 - Do NOT add features beyond PRD MVP scope.
 - Tasks must be **30–90 minutes** of focused work for a solo dev.
-- Every task must have:
-  - Objective
-  - Scope (what is IN / OUT)
-  - Files/areas likely touched (paths)
-  - Acceptance criteria as checkboxes
-  - Verification steps (commands or manual checks)
-  - Dependencies (task IDs)
 - Use stable IDs: `P1-T01`, `P1-T02`, ... by phase.
-- Keep implementation details minimal; backlog should guide execution, not contain code.
 
 ## What to include in 06-backlog.md
 
 Use `templates/06-backlog.template.md`.
 
-### Minimum requirements
+Minimum requirements:
 
 1. **Phases**
-   - Phase 1: MVP (ship vertical slice)
-   - Phase 2: Post-MVP (polish/retention)
-   - Phase 3: Growth/ASO/experiments (optional)
-
-2. **Epics aligned to PRD flows**
-   - Auth & onboarding
-   - Core loop (create → results → export)
-   - History
-   - Paywall / subscription
-   - Settings + legal
-   - Analytics & instrumentation
-   - Infra/CI/Release
-
-3. **Dependency graph**
-   - A short section listing critical path tasks (the minimum chain to ship)
-
-4. **Task cards**
-   - At least 20 tasks for Phase 1 (MVP)
-   - At least 5 tasks for Phase 2 (optional)
-   - Each task uses the Task Card format (see `references/task-card-format.md`)
-
+2. **Epics**
+3. **Dependency Graph**
+4. **Task Cards (at least 20 for Phase 1)**
 5. **Definition of Done**
-   - MVP DoD: lint/typecheck/tests/build and UX states implemented
-   - Release checklist: EAS build profile, env vars set, basic smoke steps
 
-## Procedure
+## Quality Self-Check
 
-1. Read `02-prd.md` and list MVP epics/stories; map each story to screens/routes from `03-ui-ux-spec.md`.
-2. Use `04-tech-architecture.md` to identify infra tasks (folder tree, data layer, integrations, CI/CD).
-3. Break work into 30–90 min tasks:
-   - Prefer “vertical slice” sequencing: scaffold → auth → one end-to-end flow → paywall → polish.
-4. For each task:
-   - Keep scope narrow (single deliverable)
-   - Add explicit acceptance criteria and verification
-   - Attach dependencies and mark critical path tasks
-5. Ensure naming consistency with `00-glossary.md` (screens, events, domain terms).
-6. Output `06-backlog.md` as a single markdown file.
+Before delivering, verify:
+
+- [ ] Phase 1 (MVP) contains at least 20 task cards.
+- [ ] No task estimate exceeds 90 minutes.
+- [ ] Every task has at least 2 acceptance criteria and 1 verification step.
+- [ ] The Critical Path is a clearly defined chain of task IDs.
+- [ ] Naming matches the `00-glossary.md` exactly.
+
+## Optional: structure validator
+
+After producing the file, optionally run:
+
+- `python scripts/validate_docfactory_backlog.py`
 
 ## Stop & ask conditions
 
@@ -103,7 +87,7 @@ Stop and ask the user if:
 
 - Phase 1 MVP scope is unclear or conflicts across docs.
 - The number of MVP screens/routes cannot be derived from UI/UX spec.
-- Integration choices are ambiguous (analytics provider, AI provider, etc.).
+- Integration choices are ambiguous.
 
 ## Additional Resources
 

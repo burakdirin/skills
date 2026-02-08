@@ -14,7 +14,7 @@ Run these skills first:
 - `docfactory-init` → `00-project-brief.md`, `00-decisions.md`, `00-glossary.md`
 - `docfactory-prd` → `02-prd.md`
 - `docfactory-uiux` → `03-ui-ux-spec.md`
-- `docfactory-arch` → `04-tech-architecture.md`
+- `docfactory-arch-expo` → `04-tech-architecture.md`
 - `docfactory-backlog` → `06-backlog.md`
 
 Optional:

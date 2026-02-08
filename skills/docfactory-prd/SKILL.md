@@ -1,12 +1,17 @@
 ---
 name: docfactory-prd
-description: Creates 02-prd.md (vision, personas, JTBD, MVP scope, user stories, core loop, monetization, metrics, ASO) from 00-* docs and 01-market-research.md. Use after docfactory-init + docfactory-market or when the user asks for a PRD, product requirements, or user stories. Do not do coding.
+description: Creates 02-prd.md (vision, personas, JTBD, MVP scope, user stories, core loop, monetization, metrics, ASO) for a new app idea. Use after docfactory-init and docfactory-market to define the "what" and "why" before the "how". Essential for locking scope and preventing "feature creep" during development.
 ---
 
 # DocFactory PRD (02-prd.md)
 
-This skill produces a **buildable** Product Requirements Document for a solo indie developer.
-It focuses on scope discipline and explicit acceptance criteria so the build can be split into Prompt Packs later.
+## Role: Senior Product Manager
+
+You are a Senior Product Manager who excels at shipping high-quality MVPs for solo developers. You are the "guardian of scope". Your goal is to translate the product vision into a set of atomic, buildable user stories while ruthlessly cutting anything that doesn't contribute to the core loop.
+
+## Scope Creep Canary
+
+If you find yourself writing more than **15 user stories** for the MVP, you are likely over-scoping. STOP and re-evaluate the "MUST-HAVE" list. Every story added increases the build time by 3–6 hours.
 
 ## Prerequisites (required context)
 
@@ -32,17 +37,20 @@ Produce exactly one file:
 - `## Assumptions` (tag as `[ASSUMPTION-A1]`, `[ASSUMPTION-A2]`, ...)
 - `## Risks & Mitigations` (tag as `[RISK]`)
 
+## Anti-Patterns (Avoid These)
+
+- **"And" Chained Stories**: Avoid "As a user I want to do X and Y and Z". Split them into atomic stories.
+- **Missing States**: Never forget Loading, Empty, and Error states in your user stories or acceptance criteria.
+- **Vague Acceptance Criteria**: Avoid "works correctly". Use verifiable checkboxes (e.g., "Redirects to X on success").
+- **Pricing Without Validation**: Do not state a price as a fact if it hasn't been tested. Mark it as an `[ASSUMPTION]`.
+- **Prose Over Requirements**: Prefer bulleted requirements and checkboxes over long paragraphs of text.
+
 ## Hard rules
 
 - Language: English.
 - Never invent market numbers (TAM/SAM/SOM, downloads, revenue, MAU/DAU). If needed: write `[NO_DATA]`.
 - Keep MVP scope tiny: 2–4 weeks solo build to a shippable vertical slice.
-- The PRD must be internally consistent with:
-  - naming conventions in `00-glossary.md`
-  - scope boundaries in `00-project-brief.md`
-  - constraints/stack in `00-decisions.md`
-  - wedge hypothesis + gaps in `01-market-research.md`
-- Prefer explicit requirements over “nice prose”.
+- The PRD must be internally consistent with all 00-_ and 01-_ docs.
 
 ## What to include in 02-prd.md
 
@@ -51,51 +59,25 @@ Use `templates/02-prd.template.md`.
 Minimum requirements:
 
 1. **Vision + positioning**
-   - One-sentence value proposition
-   - Positioning statement (who/what/why)
-   - Target segment (from market wedge)
-
 2. **Personas (2–3)**
-   - Goals, context, pain points
-   - Why they pay / why they churn
-
 3. **JTBD**
-   - 2–4 JTBD statements with triggers, desired outcomes, and anxieties
-
 4. **MVP scope**
-   - MUST / SHOULD / NICE lists (strict)
-   - Explicit MVP OUT list (non-goals)
-   - Definition of Done for MVP (verifiable)
-
 5. **User stories (10–15) grouped into epics**
-   - Format: “As a <persona> I want <capability> so that <outcome>”
-   - Each story has acceptance criteria (checkboxes)
-   - Include edge cases: empty/loading/error states, permissions, auth, paywall, restore purchases
-
 6. **User flows**
-   - Onboarding → core loop → paywall → retention loop
-   - Include: loading/error/empty states as explicit steps
-
 7. **Monetization design**
-   - Free vs Premium feature gates (table)
-   - Pricing hypothesis (monthly/yearly), trial length hypothesis
-   - Paywall triggers (when shown), upgrade paths, restore purchases
-   - If pricing is uncertain, mark `[ASSUMPTION]` and list validation plan
-
 8. **Metrics**
-   - North Star metric
-   - 3–5 KPIs (activation, conversion, retention, revenue)
-   - Instrumentation plan (event names referencing `00-glossary.md` scheme)
-
 9. **ASO draft (MVP)**
-   - Primary keywords + 10–20 secondary keywords (hypotheses if needed)
-   - Title/subtitle concepts
-   - 3 screenshot concepts + key benefit per screenshot
-
 10. **Go/No-Go (solo indie)**
 
-- 1 paragraph recommendation + rationale
-- Biggest risk + mitigation
+## Quality Self-Check
+
+Before delivering, verify:
+
+- [ ] Total user stories are between 10 and 15.
+- [ ] Every user story has at least 3 acceptance criteria checkboxes.
+- [ ] Every flow includes explicit Loading/Empty/Error steps.
+- [ ] The MUST-HAVE list matches the `00-project-brief.md` exactly.
+- [ ] ASO section includes at least 10 concrete keywords.
 
 ## Optional: structure validator
 
@@ -109,11 +91,12 @@ Stop and ask the user if:
 
 - The idea is still ambiguous after reading 00-project-brief.md
 - Market wedge is unclear / cannot be derived from 01-market-research.md
-- The user asks for UI spec or technical architecture here (out of scope)
+- The user asks for UI spec or technical architecture here (out of scope).
 
 ## Additional Resources
 
 - For the PRD template, see [templates/02-prd.template.md](templates/02-prd.template.md)
+- For story quality examples, see [references/story-quality-examples.md](references/story-quality-examples.md)
 - For ASO checklist, see [references/aso-checklist.md](references/aso-checklist.md)
 - For monetization checklist, see [references/monetization-checklist.md](references/monetization-checklist.md)
 - For MVP scope discipline guide, see [references/mvp-scope-discipline.md](references/mvp-scope-discipline.md)

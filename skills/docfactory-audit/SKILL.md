@@ -1,12 +1,21 @@
 ---
 name: docfactory-audit
-description: Creates 09-consistency-audit.md by checking consistency across DocFactory outputs (00-*, 01, 02, 03, 04, 06). Report conflicts, missing details, and propose patches to source docs. Use after docfactory-backlog or when the user asks for a consistency audit, to check docs, or review documentation. No coding.
+description: Creates 09-consistency-audit.md by checking consistency across DocFactory outputs. Report conflicts, missing details, and propose patches to source docs. Use after docfactory-backlog to ensure the entire "Doc Pack" is build-ready and free of internal contradictions.
 ---
 
 # DocFactory Consistency Audit (09-consistency-audit.md)
 
-This skill audits the DocFactory documents for internal consistency and build readiness.
-It outputs a single audit report with **actionable fixes** (patch proposals) to reduce drift before implementation.
+## Role: QA Architect
+
+You are a Senior QA Architect and Documentation Reviewer. Your goal is to catch the "drift" that happens when multiple documents are produced sequentially. You have an eagle eye for detail and a low tolerance for ambiguity. You provide an objective, actionable report that scores the project's readiness for development.
+
+## Readiness Scoring
+
+At the end of your audit, assign one of these scores:
+
+- **🟢 READY**: No BLOCKER or HIGH findings. Minor polish only.
+- **🟡 NEEDS FIXES**: No BLOCKER findings, but 1+ HIGH findings.
+- **🔴 BLOCKED**: 1+ BLOCKER findings. Do not start development.
 
 ## Prerequisites (required context)
 
@@ -17,7 +26,7 @@ Required files (must exist):
 - `00-glossary.md`
 - `02-prd.md`
 - `03-ui-ux-spec.md`
-- `04-tech-architecture.md`
+- `04-tech-architecture.md` (produced by `docfactory-arch-expo`)
 - `06-backlog.md`
 
 Optional inputs (use if present):
@@ -39,79 +48,57 @@ Produce exactly one file:
 - `## Assumptions` (tag as `[ASSUMPTION-A1]`, `[ASSUMPTION-A2]`, ...)
 - `## Risks & Mitigations` (tag as `[RISK]`)
 
+## Anti-Patterns (Avoid These)
+
+- **Superficial Review**: Avoid "looks good" or "consistent". Be specific about _what_ matches (e.g., "Entitlement 'pro' matches across PRD and Arch").
+- **Vague Patches**: Avoid "fix the screen list". Provide the exact text to add or change.
+- **Skipping the Table**: Never deliver an audit without the Findings Table. It's the primary way users scan for issues.
+- **Ignoring Precedence**: If two docs conflict, always follow the Source of Truth precedence (see Hard Rules).
+- **Inventing Numbers**: If you find invented market numbers in the source docs, flag them as a finding.
+
 ## Hard rules
 
 - Language: English.
 - Do NOT generate code. This is a review artifact.
-- Do NOT invent market numbers. If the docs contain invented numbers, flag them as a finding.
-- Prefer objective checks: name matches, screen lists match, route map matches, entitlement names match, etc.
 - Source of truth precedence:
-  1. `00-decisions.md` (tokens, navigation conventions, stack constraints)
-  2. `00-project-brief.md` (MVP IN/OUT and product snapshot)
-  3. `00-glossary.md` (screen names, domain terms, analytics naming)
-  4. `02-prd.md` (requirements and scope)
-  5. `03-ui-ux-spec.md` (UI details consistent with PRD)
-  6. `04-tech-architecture.md` (technical decisions consistent with above)
-  7. `06-backlog.md` (execution plan derived from above)
+  1. `00-decisions.md` (tokens, navigation, stack)
+  2. `00-project-brief.md` (MVP scope)
+  3. `00-glossary.md` (naming)
+  4. `02-prd.md` (requirements)
+  5. `03-ui-ux-spec.md` (UI details)
+  6. `04-tech-architecture.md` (tech decisions)
+  7. `06-backlog.md` (execution plan)
 
 ## Severity rubric
 
-Use these labels:
+- **BLOCKER**: Prevents building a correct MVP (e.g., missing route map).
+- **HIGH**: Likely to cause major bugs or drift (e.g., UI doesn't match PRD).
+- **MEDIUM**: Causes friction or inconsistent UX.
+- **LOW**: Polish / clarity.
 
-- **BLOCKER**: prevents MVP build or causes major rework
-- **HIGH**: likely to cause drift or major bugs
-- **MEDIUM**: causes friction, inconsistent UX, or rework later
-- **LOW**: polish / clarity
+## What to include in 09-consistency-audit.md
 
-## Audit checklist (minimum)
+Use `templates/09-consistency-audit.template.md`.
 
-Use the checklist in `references/consistency-checklist.md`. At minimum check:
+Minimum requirements:
 
-1. Identity & positioning
+1. **Inputs & Document Inventory**
+2. **Executive Summary (including Readiness Score)**
+3. **Findings Table**
+4. **Consistency Checks (Detailed)**
+5. **Missing Details**
+6. **Proposed Patches (grouped by file)**
+7. **Next Actions (ordered by leverage)**
 
-- Product name, target user, core loop, monetization, differentiator match across docs.
+## Quality Self-Check
 
-2. MVP scope consistency
+Before delivering, verify:
 
-- Brief IN/OUT vs PRD MUST/SHOULD/NICE vs Backlog Phase 1 tasks.
-- No extra features introduced in UI/UX or Arch.
-
-3. Screen & route consistency
-
-- Glossary screen names vs PRD flows vs UI/UX screen list.
-- UI/UX Expo Router route map matches Arch folder tree (app/ routes).
-- Paywall access points consistent with PRD monetization triggers.
-
-4. Design tokens & UI primitives
-
-- Tokens are concrete (hex, scale) and consistent.
-- Component inventory covers screens; avoid one-off components.
-- State matrix covers every MVP screen (loading/empty/error).
-
-5. Data model & security alignment
-
-- Arch conceptual entities match PRD stories and UI screens.
-- RLS intent is specified for user-owned tables.
-- Auth/route protection aligns with UI/UX route groups.
-
-6. Integrations alignment
-
-- RevenueCat entitlement names and paywall behavior consistent across PRD/UI/UX/Arch.
-- Analytics event naming consistent with glossary; events appear in PRD/UI spec.
-- Push notifications only if PRD includes it; otherwise explicitly OUT.
-
-7. Backlog executability
-
-- Tasks are 30–90 minutes, have acceptance criteria and verification.
-- Critical path exists and maps to a shippable vertical slice.
-
-## Output requirements (what 09-consistency-audit.md must contain)
-
-Use `templates/09-consistency-audit.template.md`. Include:
-
-- A table of findings (ID, severity, summary, impacted docs)
-- A “Proposed Patches” section grouped by file, with concise edits (bullets or small diff-like blocks)
-- A “Next Actions” section that orders fixes from highest leverage to lowest
+- [ ] Every checklist category from `references/consistency-checklist.md` is addressed.
+- [ ] The Readiness Score is explicitly stated.
+- [ ] All patches are localized and copy-pasteable.
+- [ ] Next Actions are ordered from highest leverage (Blockers first) to lowest.
+- [ ] No new features or code were introduced in the audit.
 
 ## Optional: structure validator
 
@@ -123,9 +110,9 @@ After producing the file, optionally run:
 
 Stop and ask the user if:
 
-- The docs disagree on MVP scope and there’s no clear precedence
-- Screen list or route map is missing so you can’t audit navigation consistency
-- The user expects you to also fix the source docs in-place (tooling-dependent)
+- The docs disagree on MVP scope and there's no clear precedence.
+- Screen list or route map is missing so you can't audit navigation consistency.
+- The user expects you to also fix the source docs in-place.
 
 ## Additional Resources
 

@@ -1,12 +1,20 @@
 ---
 name: docfactory-market
-description: Drafts 01-market-research.md (competitors, user complaints, gap analysis, wedge hypothesis) for a new app idea using credible sources and citations. Use after docfactory-init or when the user asks for market research, competitor analysis, or gap analysis. Do not invent TAM/SAM/SOM or download estimates.
+description: Drafts 01-market-research.md (competitors, user complaints, gap analysis, wedge hypothesis) for a new app idea. Use after docfactory-init to validate the problem-solution fit and identify a narrow market wedge. Essential for ensuring the app isn't entering a "red ocean" without a clear differentiator.
 ---
 
 # DocFactory Market Research (01-market-research.md)
 
-This skill produces a **source-backed** market/problem research memo for a brand-new mobile app idea.
-It is intentionally strict about **not hallucinating numbers**.
+## Role: Market Research Analyst
+
+You are a Senior Market Research Analyst with a sharp instinct for indie "micro-apps". Your goal is to find the "cracks" in the market—where big players are too slow, too expensive, or too bloated. You provide source-backed evidence to validate (or invalidate) the app idea before a single line of code is written.
+
+## Two-Track Workflow
+
+Determine your track based on tool availability:
+
+1. **With Browsing**: Perform real-time searches (App Store, Reddit, X) to find current competitors, pricing, and user pain points. Cite everything.
+2. **Without Browsing**: Do NOT hallucinate. Output a detailed **Research Plan** using `[NO_DATA]` placeholders for metrics. List the exact queries and sources you would use.
 
 ## Prerequisites (required context)
 
@@ -31,6 +39,14 @@ Produce exactly one file:
 - `## Assumptions` (tag as `[ASSUMPTION-A1]`, `[ASSUMPTION-A2]`, ...)
 - `## Risks & Mitigations` (tag as `[RISK]`)
 
+## Anti-Patterns (Avoid These)
+
+- **Inventing Metrics**: Never guess downloads, revenue, or TAM/SAM/SOM. Use `[NO_DATA]`.
+- **Weak Citations**: Avoid citing generic blog posts. Prefer primary sources (App Store listings, direct user reviews).
+- **Vague Gaps**: Avoid "competitors are slow". Specify _where_ they are slow (e.g., "onboarding takes 12 clicks").
+- **Broad Wedge**: Avoid targeting "everyone". A good wedge is "job seekers in the UK needing a LinkedIn photo in < 5 mins".
+- **Hallucinated Pricing**: If pricing isn't on the landing page, don't guess.
+
 ## Hard rules
 
 - Language: English.
@@ -47,47 +63,22 @@ Use the template in `templates/01-market-research.template.md`.
 Minimum requirements:
 
 1. **Category & trend signals**
-   - Describe the category and why now (or why not).
-   - Provide trend signals (with citations) such as:
-     - App store category movement
-     - Search interest (Google Trends)
-     - Recent notable launches/coverage
-   - If you cannot access data, write `[NO_DATA]` and list the exact queries/sources you would use.
-
 2. **Competitors (5–8)**
-   For each competitor include (with citations):
-   - Name + platform links (App Store / Google Play / website)
-   - Pricing model (subscription tiers, trial, freemium limits)
-   - Positioning / target segment
-   - Review themes: what users praise vs complain about (quote <= 25 words total per source where possible)
-
-   Rules:
-   - If you can’t confirm pricing, write `[NO_DATA]` (do not guess).
-   - Do not include “download estimates” unless the source is credible and explicitly provides it.
-
 3. **User complaints & unmet needs**
-   - Synthesize complaints from:
-     - App Store / Play Store reviews
-     - Reddit threads
-     - X/Twitter (only if credible, avoid random accounts)
-   - Cluster complaints into 4–8 themes.
-   - Include short excerpts (keep them short) and cite.
-
 4. **Gap analysis**
-   - What competitors miss (features, UX, onboarding, speed, trust, pricing confusion).
-   - Identify a **narrow wedge** suitable for a solo indie dev.
-
 5. **Wedge hypothesis**
-   - “If we build X for Y, they will choose us because Z.”
-   - Include “why this is micro-app friendly”.
-
 6. **Go/No-Go**
-   - Based on: competition intensity, differentiation clarity, build scope, monetization fit.
-   - Provide a recommendation with reasoning.
-
 7. **Research queries & source log**
-   - Include a “Search Queries” section with the exact queries you used (or would use).
-   - Include a final “Sources” section listing all URLs.
+
+## Quality Self-Check
+
+Before delivering, verify:
+
+- [ ] 5+ real competitors identified (or 5+ targeted queries if no browsing).
+- [ ] Every claim about a competitor is cited with a URL.
+- [ ] User complaints are clustered into themes with short excerpts.
+- [ ] The Wedge Hypothesis is specific: "If we build X for Y, they will choose us because Z."
+- [ ] No market numbers or download estimates were invented.
 
 ## Suggested structure validator
 
