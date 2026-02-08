@@ -1,6 +1,6 @@
 ---
 name: docfactory-init
-description: Creates the Source-of-Truth docs for a new mobile app idea (00-project-brief.md, 00-decisions.md, 00-glossary.md) from a short Idea Capsule. Use at the start of every new idea, before PRD/UX/architecture. Do not do market research, TAM/SAM/SOM, or generate code.
+description: Creates the Source-of-Truth docs for a new mobile app idea (00-project-brief.md, 00-decisions.md, 00-glossary.md) from a short Idea Capsule. Use at the start of every new idea, before PRD/UX/architecture, or when the user asks for initial docs, a project brief, or to start a new idea. Do not do market research, TAM/SAM/SOM, or generate code.
 ---
 
 # DocFactory Init (Source-of-Truth Pack)
@@ -105,3 +105,14 @@ Stop and ask the user if:
 - The Idea Capsule is missing required fields
 - The user requests market sizing / competitor stats (out of scope for init)
 - The user wants coding output (out of scope for init)
+
+## Additional Resources
+
+- For the Idea Capsule template, see [references/idea-capsule.template.yaml](references/idea-capsule.template.yaml)
+- For project brief template, see [templates/00-project-brief.template.md](templates/00-project-brief.template.md)
+- For decisions template, see [templates/00-decisions.template.md](templates/00-decisions.template.md)
+- For glossary template, see [templates/00-glossary.template.md](templates/00-glossary.template.md)
+- For a complete example, see [examples/idea.example.yaml](examples/idea.example.yaml)
+- For example outputs, see [examples/output/](examples/output/)
+- For validation script, see [scripts/validate_docfactory_init.py](scripts/validate_docfactory_init.py)
+- For generation script, see [scripts/generate_docfactory_init.py](scripts/generate_docfactory_init.py)

@@ -1,6 +1,6 @@
 ---
 name: docfactory-audit
-description: Creates 09-consistency-audit.md by checking consistency across DocFactory outputs (00-*, 01, 02, 03, 04, 06). Report conflicts, missing details, and propose patches to source docs. Use after docfactory-backlog. No coding.
+description: Creates 09-consistency-audit.md by checking consistency across DocFactory outputs (00-*, 01, 02, 03, 04, 06). Report conflicts, missing details, and propose patches to source docs. Use after docfactory-backlog or when the user asks for a consistency audit, to check docs, or review documentation. No coding.
 ---
 
 # DocFactory Consistency Audit (09-consistency-audit.md)
@@ -126,3 +126,12 @@ Stop and ask the user if:
 - The docs disagree on MVP scope and there’s no clear precedence
 - Screen list or route map is missing so you can’t audit navigation consistency
 - The user expects you to also fix the source docs in-place (tooling-dependent)
+
+## Additional Resources
+
+- For the consistency audit template, see [templates/09-consistency-audit.template.md](templates/09-consistency-audit.template.md)
+- For consistency checklist, see [references/consistency-checklist.md](references/consistency-checklist.md)
+- For patch style guide, see [references/patch-style-guide.md](references/patch-style-guide.md)
+- For severity rubric, see [references/severity-rubric.md](references/severity-rubric.md)
+- For example output, see [examples/output/09-consistency-audit.md](examples/output/09-consistency-audit.md)
+- For validation script, see [scripts/validate_docfactory_audit.py](scripts/validate_docfactory_audit.py)

@@ -1,6 +1,6 @@
 ---
 name: docfactory-market
-description: Drafts 01-market-research.md (competitors, user complaints, gap analysis, wedge hypothesis) for a new app idea using credible sources and citations. Use after docfactory-init. Do not invent TAM/SAM/SOM or download estimates.
+description: Drafts 01-market-research.md (competitors, user complaints, gap analysis, wedge hypothesis) for a new app idea using credible sources and citations. Use after docfactory-init or when the user asks for market research, competitor analysis, or gap analysis. Do not invent TAM/SAM/SOM or download estimates.
 ---
 
 # DocFactory Market Research (01-market-research.md)
@@ -102,3 +102,12 @@ Stop and ask the user if:
 - The app category is unclear, or you cannot identify 5–8 competitors.
 - You do not have access to browse sources but the user expects verified numbers.
 - The user asks for PRD/UX/architecture here (out of scope).
+
+## Additional Resources
+
+- For the market research template, see [templates/01-market-research.template.md](templates/01-market-research.template.md)
+- For search queries guidance, see [references/search-queries.template.md](references/search-queries.template.md)
+- For source quality rubric, see [references/source-quality-rubric.md](references/source-quality-rubric.md)
+- For a complete example, see [examples/idea.example.yaml](examples/idea.example.yaml)
+- For example output, see [examples/output/01-market-research.md](examples/output/01-market-research.md)
+- For validation script, see [scripts/validate_docfactory_market.py](scripts/validate_docfactory_market.py)

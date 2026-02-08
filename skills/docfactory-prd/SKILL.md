@@ -1,6 +1,6 @@
 ---
 name: docfactory-prd
-description: Creates 02-prd.md (vision, personas, JTBD, MVP scope, user stories, core loop, monetization, metrics, ASO) from 00-* docs and 01-market-research.md. Use after docfactory-init + docfactory-market. Do not do coding.
+description: Creates 02-prd.md (vision, personas, JTBD, MVP scope, user stories, core loop, monetization, metrics, ASO) from 00-* docs and 01-market-research.md. Use after docfactory-init + docfactory-market or when the user asks for a PRD, product requirements, or user stories. Do not do coding.
 ---
 
 # DocFactory PRD (02-prd.md)
@@ -110,3 +110,14 @@ Stop and ask the user if:
 - The idea is still ambiguous after reading 00-project-brief.md
 - Market wedge is unclear / cannot be derived from 01-market-research.md
 - The user asks for UI spec or technical architecture here (out of scope)
+
+## Additional Resources
+
+- For the PRD template, see [templates/02-prd.template.md](templates/02-prd.template.md)
+- For ASO checklist, see [references/aso-checklist.md](references/aso-checklist.md)
+- For monetization checklist, see [references/monetization-checklist.md](references/monetization-checklist.md)
+- For MVP scope discipline guide, see [references/mvp-scope-discipline.md](references/mvp-scope-discipline.md)
+- For user story checklist, see [references/user-story-checklist.md](references/user-story-checklist.md)
+- For a complete example, see [examples/idea.example.yaml](examples/idea.example.yaml)
+- For example output, see [examples/output/02-prd.md](examples/output/02-prd.md)
+- For validation script, see [scripts/validate_docfactory_prd.py](scripts/validate_docfactory_prd.py)

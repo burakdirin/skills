@@ -1,6 +1,6 @@
 ---
 name: docfactory-arch
-description: Creates 04-tech-architecture.md (stack decisions, data layer, Supabase schema + RLS approach, integrations, folder tree, deployment, performance, security) from 00-* docs + PRD + UI/UX spec. Use after docfactory-uiux. Do not generate code.
+description: Creates 04-tech-architecture.md (stack decisions, data layer, Supabase schema + RLS approach, integrations, folder tree, deployment, performance, security) from 00-* docs + PRD + UI/UX spec. Use after docfactory-uiux or when the user asks for technical architecture, a tech stack, or a data model. Do not generate code.
 ---
 
 # DocFactory Technical Architecture (04-tech-architecture.md)
@@ -131,3 +131,16 @@ Stop and ask the user if:
 - The PRD or UI/UX spec is not specific enough to derive routes/screens
 - The data model cannot be derived from the PRD/user stories
 - Integrations are ambiguous (RevenueCat vs other IAP; which analytics)
+
+## Additional Resources
+
+- For the tech architecture template, see [templates/04-tech-architecture.template.md](templates/04-tech-architecture.template.md)
+- For dependency pinning guidance, see [references/dependency-pinning-and-verification.md](references/dependency-pinning-and-verification.md)
+- For deployment checklist, see [references/deployment-checklist.md](references/deployment-checklist.md)
+- For Expo Router architecture notes, see [references/expo-router-architecture-notes.md](references/expo-router-architecture-notes.md)
+- For NativeWind notes, see [references/nativewind-notes.md](references/nativewind-notes.md)
+- For RevenueCat integration checklist, see [references/revenuecat-integration-checklist.md](references/revenuecat-integration-checklist.md)
+- For Supabase RLS checklist, see [references/supabase-rls-checklist.md](references/supabase-rls-checklist.md)
+- For a complete example, see [examples/idea.example.yaml](examples/idea.example.yaml)
+- For example output, see [examples/output/04-tech-architecture.md](examples/output/04-tech-architecture.md)
+- For validation script, see [scripts/validate_docfactory_arch.py](scripts/validate_docfactory_arch.py)

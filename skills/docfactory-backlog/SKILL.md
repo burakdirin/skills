@@ -1,6 +1,6 @@
 ---
 name: docfactory-backlog
-description: Creates 06-backlog.md as a solo-friendly build plan (30–90 min tasks) derived from 00-* docs + PRD + UI/UX + Architecture. Includes phases, epics, dependencies, acceptance criteria, and verification commands. Use after docfactory-arch. Do not generate code.
+description: Creates 06-backlog.md as a solo-friendly build plan (30–90 min tasks) derived from 00-* docs + PRD + UI/UX + Architecture. Includes phases, epics, dependencies, acceptance criteria, and verification commands. Use after docfactory-arch or when the user asks for a backlog, task breakdown, or build plan. Do not generate code.
 ---
 
 # DocFactory Backlog (06-backlog.md)
@@ -104,3 +104,13 @@ Stop and ask the user if:
 - Phase 1 MVP scope is unclear or conflicts across docs.
 - The number of MVP screens/routes cannot be derived from UI/UX spec.
 - Integration choices are ambiguous (analytics provider, AI provider, etc.).
+
+## Additional Resources
+
+- For the backlog template, see [templates/06-backlog.template.md](templates/06-backlog.template.md)
+- For definition of done checklist, see [references/dod-checklist.md](references/dod-checklist.md)
+- For estimation rubric, see [references/estimation-rubric.md](references/estimation-rubric.md)
+- For task card format, see [references/task-card-format.md](references/task-card-format.md)
+- For a complete example, see [examples/idea.example.yaml](examples/idea.example.yaml)
+- For example output, see [examples/output/06-backlog.md](examples/output/06-backlog.md)
+- For validation script, see [scripts/validate_docfactory_backlog.py](scripts/validate_docfactory_backlog.py)

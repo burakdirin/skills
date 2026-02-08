@@ -1,6 +1,6 @@
 ---
 name: docfactory-uiux
-description: Creates 03-ui-ux-spec.md (IA, Expo Router route map, screen list, states, design tokens, component inventory, micro-interactions, accessibility) from 00-* docs and 02-prd.md. Use after docfactory-prd. Do not generate code.
+description: Creates 03-ui-ux-spec.md (IA, Expo Router route map, screen list, states, design tokens, component inventory, micro-interactions, accessibility) from 00-* docs and 02-prd.md. Use after docfactory-prd or when the user asks for a UI spec, UX design, screens, or a design system. Do not generate code.
 ---
 
 # DocFactory UI/UX Spec (03-ui-ux-spec.md)
@@ -122,3 +122,14 @@ Stop and ask the user if:
 - The PRD scope is ambiguous (cannot list MVP screens)
 - Token decisions conflict (00-decisions vs PRD vs brief)
 - The user asks for technical architecture or DB schema here (out of scope)
+
+## Additional Resources
+
+- For the UI/UX spec template, see [templates/03-ui-ux-spec.template.md](templates/03-ui-ux-spec.template.md)
+- For accessibility checklist, see [references/accessibility-checklist.md](references/accessibility-checklist.md)
+- For component inventory guidance, see [references/component-inventory-guidance.md](references/component-inventory-guidance.md)
+- For IA and routing checklist, see [references/ia-routing-checklist.md](references/ia-routing-checklist.md)
+- For screen spec checklist, see [references/screen-spec-checklist.md](references/screen-spec-checklist.md)
+- For a complete example, see [examples/idea.example.yaml](examples/idea.example.yaml)
+- For example output, see [examples/output/03-ui-ux-spec.md](examples/output/03-ui-ux-spec.md)
+- For validation script, see [scripts/validate_docfactory_uiux.py](scripts/validate_docfactory_uiux.py)
