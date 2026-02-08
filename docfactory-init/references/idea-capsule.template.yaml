@@ -1,0 +1,32 @@
+# DocFactory Idea Capsule (YAML)
+# Fill this once per new app idea. Keep it short but concrete.
+#
+# Required: name, target_user, core_loop, monetization, differentiator
+# Optional: must_include, must_not_include, target_markets, platforms, stack_overrides
+
+name: "..."
+target_user: "..."
+core_loop: "..."
+monetization: "freemium + subscription"
+differentiator: "..."
+
+# Optional
+target_markets: ["US", "UK", "DE", "FR"]
+platforms: ["iOS", "Android"]
+
+must_include:
+  - "paywall"
+  - "history"
+  - "export"
+must_not_include:
+  - "social feed"
+  - "messaging"
+  - "marketplace"
+
+# If you want to override defaults (use sparingly)
+stack_overrides:
+  expo_sdk: "54+"
+  router: "expo-router"
+  styling: "nativewind v4"
+  backend: "supabase (auth+db+rls)"
+  iap: "revenuecat"
